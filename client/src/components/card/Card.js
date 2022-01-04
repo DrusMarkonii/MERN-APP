@@ -1,20 +1,21 @@
 import React from 'react'
+import './style.css'
 
-export default function Card() {
+export default function Card(props) {
     return (
     
         <div className='card-form'>
             <div className='card-name'>
-                <p>gh</p>
+                <p>name</p>
             </div>
             <div className='card-description'>
-                <p>fgh</p>
+                <p>description</p>
             </div>
             <div className='card-drugType'>
-                <p>fgh</p>
+                <p>drugType</p>
             </div>
             <div className='card-delete'>
-                <button>Delete</button>
+                <button id={props.id} onClick={props.onHandelClick}>Delete</button>
             </div>
         </div>
         

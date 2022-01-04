@@ -1,18 +1,23 @@
 import React from 'react'
-import Card from './components/card/Card';
+import { BrowserRouter} from 'react-router-dom';
 import Cards from './components/cards/Cards';
+import 'materialize-css'
+import { useRoutes } from './routes/routes';
 
 
 function App() {
    
+  const routes = useRoutes(false)
     
 
   return (
-    <div className="App">
-      <Card />
-      hello
-      <Cards />
+    <BrowserRouter>
+      <div className="container">
+        {routes}
+        <Cards />
     </div>
+    </BrowserRouter>
+    
   );
 }
 
