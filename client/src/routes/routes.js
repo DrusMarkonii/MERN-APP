@@ -1,31 +1,21 @@
 import React from 'react'
 import {Routes, Route, Navigate } from 'react-router-dom'
-import CreatePage from '../pages/CreatePage'
-import DetailPage from '../pages/DetailPage'
-import LinksPage from '../pages/LinksPage'
-import AuthPage from '../pages/AuthPage'
+import CardPage from '../pages/CardPage'
+import AllCardsPage from '../pages/AllCardsPage'
+import HomePage from '../pages/HomePage'
+import ErrorPage from '../pages/ErrorPade'
 
 
-export const useRoutes = isAuth => {
-    if (isAuth) {
+
+export const useRoutes = () => {
+   
         return (
             <Routes>
-                <Route path='/links' element={ <LinksPage /> } />
-                <Route path='/create' element={<CreatePage />} />
-                <Route path='/detail/:id' element={<DetailPage/>} />
-                <Route path='/*' element={ <Navigate  to="/create"/> } />
-                    
-               
+                <Route path='/' element={ <HomePage /> } />
+                <Route path='/all_cards' element={ <AllCardsPage /> } />
+                <Route path='/card/:id' element={<CardPage/>} />
+                <Route path='/error' element={<ErrorPage/>} />
+                <Route path='/*' element={ <Navigate  to="/"/> } />
             </Routes>
         )
     }
-
-    return (
-        <Routes>
-            <Route path="/" exact>
-                <AuthPage />
-            </Route>
-            <Navigate to="/"/>
-        </Routes>
-    )
-}

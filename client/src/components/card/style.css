@@ -24,3 +24,7 @@
     height:50px;
     text-align: center;
 }
+
+.card-form:hover {
+    transform: scale(1.03);
+}
