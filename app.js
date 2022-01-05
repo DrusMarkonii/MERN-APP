@@ -1,14 +1,19 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const config = require('config')
+const  route  = require('./routers/route')
 const PORT = config.get('port') || 5000
+const cors = require('cors')
 
-const authRout = require('./routers/auth.routes')
+
 
 const app = express()
 
-app.use('/api/auth', authRout)
+app.use(cors())
+app.use(express.json());
 
+
+app.use('/api', route)
 
 async function start() {
     try {
@@ -24,7 +29,7 @@ async function start() {
         })
        
     } catch (e) {
-        console.log('ERROR_____', e.message)
+        console.log('ERROR_____', message)
         process.exit(1)
     }
     
