@@ -5,7 +5,9 @@ const cardsRouter = Router();
 
 const cardsController = new CardsController();
 
-cardsRouter.get("/all_cards", cardsController.getCardsList.bind(cardsController));
+
+cardsRouter.get("/", cardsController.getPages.bind(cardsController));
+cardsRouter.get("/try", cardsController.greatTry.bind(cardsController));
 cardsRouter.get('/card/:id', cardsController.getCardById.bind(cardsController));
 cardsRouter.delete('/card/:id', cardsController.removeCardById.bind(cardsController));
 

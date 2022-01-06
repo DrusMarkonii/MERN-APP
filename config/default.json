@@ -1,5 +1,6 @@
 {
     "port": 5000,
-    "mongoUrl": "mongodb://localhost/cardBase",
-    "jwtSecret": "Drus Markonii"
+    "mongoUrl": "mongodb+srv://DrusMarkonii:298518422@cluster0.5fs8x.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "Drus Markonii",
+    "mongoUrlLocal": "mongodb://localhost/cardBase"
 }

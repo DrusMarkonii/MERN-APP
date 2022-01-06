@@ -3,7 +3,8 @@ const cardsRouter = require('./card.router')
 
 const router = Router();
 
-router.use('/card', cardsRouter);
+
+router.use('/all_cards', cardsRouter);
 
 router.get('/', (req, res) => {
     res.send("home page");

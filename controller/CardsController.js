@@ -13,10 +13,14 @@ class CardsController extends Controller {
         return await this.service.getPages(); 
     }
 
+    async greatTry(req, res) {
+        
+        return await res.send("lio")
+        
+
+    }
+
     async getCardsList(req, res) {
-        const page = req.params.page;
-        const limit = 5;
-        const skipIndex = (page - 1) * limit;
         const totalPages = await this.getPages();
         const pages = Array.from({length: totalPages}, (_, i) => i + 1)
 
@@ -37,14 +41,14 @@ class CardsController extends Controller {
     }
 
     async getCardById(req, res) {
-        const id = req.params.id;
+        const id = req.params.name;
 
         await this.service.getCardById(id)
             .then(card => {
                 if (card) {
                     res.status(200).json(card);
                 } else {
-                    res.status(400).send("Медикамент не найден.")
+                    res.status(400).send("Card not found.")
                 }
                 
             })

@@ -1,10 +1,9 @@
-
 const Card = require("../models/Card")
 
 class CardService {
 
   async getCardsList(limit, skipIndex) {
-    return await Card.find(
+    return await allData.find(
       {},
       {
         id: true,
@@ -16,7 +15,7 @@ class CardService {
   }
 
   async getCardById(id) {
-    return await Card.findOne(
+    return await allData.findOne(
       { _id: id },
       {
         _id: true,
