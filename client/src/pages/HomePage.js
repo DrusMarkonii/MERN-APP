@@ -7,16 +7,17 @@ export default function HomePage() {
 
     const handlerClick = () => {
         navigate('all_cards')
+        
     }
-
+    
     const fetchReq = () => {
-        fetch('http://localhost:5000/api/all_cards/try')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-  });
+        fetch('http://localhost:5000/api/all_cards/')
+        .then( response => {
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data);
+        })
     }
 
     return (

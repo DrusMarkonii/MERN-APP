@@ -17,7 +17,7 @@ app.use('/api', route)
 
 async function start() {
     try {
-        await mongoose.connect(config.get('mongoUrl'), {
+        await mongoose.connect(config.get('mongoUrlLocal'), {
             useNewUrlParser: true,
             useUnifiedTopology: true
             

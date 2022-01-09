@@ -6,13 +6,13 @@ export default function Card(props) {
     
         <div className='card-form'>
             <div className='card-name'>
-                <p>name</p>
+                <p>{props.name}</p>
             </div>
             <div className='card-description'>
-                <p>description</p>
+                <p>{props.descriptionText}</p>
             </div>
             <div className='card-drugType'>
-                <p>drugType</p>
+                <p>{props.drugType}</p>
             </div>
             <div className='card-delete'>
                 <button id={props.id} onClick={props.onHandelClick}>Delete</button>

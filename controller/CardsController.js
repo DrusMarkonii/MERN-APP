@@ -1,77 +1,57 @@
 const Controller = require("./Controller")
-const CardService = require("../service/card.service")
+const CardsService = require("../service/card.service")
 
 
 class CardsController extends Controller {
 
     constructor() {
-        const cardService = new CardService();
-        super(cardService);
+        const cardsService = new CardsService();
+        super(cardsService);
     }
-
-    async getPages(){
-        return await this.service.getPages(); 
-    }
-
-    async greatTry(req, res) {
-        
-        return await res.send("lio")
-        
-
-    }
-
-    async getCardsList(req, res) {
-        const totalPages = await this.getPages();
-        const pages = Array.from({length: totalPages}, (_, i) => i + 1)
-
-        await this.service.getCardsList(limit, skipIndex)
-            .then(cardsList => {
-                if (cardsList.length) {
-                    const info = {pages, totalPages, cards: cardsList}
-                    res.status(200).json(info);
-                } else {
-                    res.send("Медикаментов нет.")
-                }
+    
+    async getCardList(req, res) {
+        await this.service.getCardList()
+            .then(cardList => {
+                console.log(cardList)
+                res.status(200).json(cardList);
             })
             .catch(err => {
-                res.status(500).send(err, {
-                    message: "Ошибка получения списка медикаментов."
+                res.status(500).send({
+                    message:
+                        (err).message || "ERROR"
                 });
             });
     }
 
     async getCardById(req, res) {
-        const id = req.params.name;
+        const id = req.param.id;
 
         await this.service.getCardById(id)
             .then(card => {
-                if (card) {
                     res.status(200).json(card);
-                } else {
-                    res.status(400).send("Card not found.")
-                }
-                
             })
             .catch(err => {
-                res.status(500).send(err, {
-                    message: "Ошибка поиска медикамента."
+                res.status(500).send({
+                    message:
+                        (err).message || "ERROR"
                 });
             });
     }
 
     async removeCardById(req, res) {
-        const id = req.params.id;
+        const id = req.param.id;
 
         await this.service.removeCardById(id)
             .then(() => {
-                res.status(200).send('Медикамент удалён!');
+                res.status(200).send('Delete');
             })
             .catch(err => {
-                res.status(500).send(err, {
-                    message: "Ошибка удаления медикамента."
+                res.status(500).send({
+                    message:
+                        (err).message || "ERROR"
                 });
             });
     }
-}
+}  
 
 module.exports = CardsController

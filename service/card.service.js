@@ -1,9 +1,13 @@
-const Card = require("../models/Card")
+// const Card = require("../models/Card")
 
 class CardService {
 
-  async getCardsList(limit, skipIndex) {
-    return await allData.find(
+  constuctor() {
+    this.cards = require("../models/Card")
+  }
+
+  async getCardsList() {
+    return await this.cards.find(
       {},
       {
         id: true,
@@ -11,11 +15,11 @@ class CardService {
         drugType: true,
         descriptionText: true,
       }
-    ).limit(5).skip(skipIndex);
+    );
   }
 
   async getCardById(id) {
-    return await allData.findOne(
+    return await this.cards.findOne(
       { _id: id },
       {
         _id: true,
@@ -27,7 +31,7 @@ class CardService {
   }
 
   async removeCardById(id) {
-    return await Card.remove({
+    return await this.cards.remove({
       _id: id,
     });
   }
