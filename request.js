@@ -1,1 +1,0 @@
-db.allData.find().limit(1)
