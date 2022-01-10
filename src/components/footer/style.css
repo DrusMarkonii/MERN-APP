@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    width: 100%;
+    align-items: center;
+    background-color: rgb(81, 141, 165);
+    height: 70px;
+}

@@ -1,0 +1,24 @@
+.squares {
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-around;
+   
+    
+}
+
+.red-square {
+    background-color: red;
+    margin-right: 20px;
+    width: 300px;
+    height: 200px;
+}
+
+.green-square {
+    background-color: green;
+    width: 300px;
+    height: 200px;
+}
+
+.white-square {
+    background-color: white;
+}
